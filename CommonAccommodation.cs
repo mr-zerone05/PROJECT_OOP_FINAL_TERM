@@ -4,23 +4,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project_OOP_2024
+namespace Management_Module
 {
-    public class CommonAccommodation : Accommodation
+    internal class CommonAccommodation:Accommodation
     {
-        List<Room> DanhSachPhong = new List<Room>();
-        private float rate;
+        protected List<Room> listRoomOfAcc = new List<Room>();
+        protected float rateAcc;
 
-        public float Rate { get => rate; set => rate = value; }
-
-        public CommonAccommodation(int id, string name, string street, string city, List<Room> danhSachPhong, float rate) : base(id, name, street, city)
+        public float RateAcc
         {
-            DanhSachPhong = danhSachPhong;
-            Rate = rate;
+            get { return rateAcc; }
+            set { rateAcc = value; }
         }
-        public CommonAccommodation(int id, string name, string street, string city, float rate) : base(id, name, street, city)
+
+        public List<Room> ListRoomOfAcc
         {
-            Rate = rate;
+            get { return listRoomOfAcc; }
+            set { listRoomOfAcc = value; }
+        }
+
+        public CommonAccommodation(int idAcc, string nameAcc, string addressAcc, string cityAcc, float rateAcc)
+            :base(idAcc, nameAcc, addressAcc, cityAcc)
+        {
+            this.rateAcc = rateAcc;
+        }
+        public CommonAccommodation(int idAcc, string nameAcc, string addressAcc, string cityAcc, List<Room> listRoomOfAcc, float rateAcc)
+            :base(idAcc, nameAcc, addressAcc, cityAcc)
+        {
+            this.listRoomOfAcc = listRoomOfAcc;
+            this.rateAcc = rateAcc;
         }
     }
 }

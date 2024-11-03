@@ -4,30 +4,42 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project_OOP_2024
+namespace Management_Module
 {
-    public class Resort : CommonAccommodation
+    internal class Resort:CommonAccommodation
     {
-        private int star;
-        private bool swim;
+        private float starResort;
+        private bool isPool;
 
-        public int Star { get => star; set => star = value; }
-        public bool Swim { get => swim; set => swim = value; }
-
-        public Resort (int id, string name, string street, string city, List<Room> danhSachPhong, float rate, int star, bool swim) : base ( id, name, street, city, danhSachPhong, rate)
+        public float StarResort
         {
-            Star = star;
-            Swim = swim;
-        }
-        public Resort (int id, string name, string street, string city, float rate, int star, bool swim) : base (id, name, street, city, rate)
-        {
-            Star = star;
-            Swim = swim;
+            get { return starResort; }
+            set { starResort = value; }
         }
 
-        public override string ToString()
+        public bool IsPool
         {
-            return $"Resort [{Id}, {Name}, {Star}, {Street}, {Swim}, {City}]";
+            get { return isPool; }
+            set { isPool = value; }
+        }
+
+        public Resort(int idAcc, string nameAcc, string addressAcc, string cityAcc, float rateAcc, float starResort, bool isPool)
+            :base(idAcc, nameAcc, addressAcc, cityAcc, rateAcc)
+        {
+            StarResort = starResort;
+            IsPool = isPool;
+        }
+
+        public Resort(int idAcc, string nameAcc, string addressAcc, string cityAcc, List<Room> listRoomOfAcc, float rateAcc, float starResort, bool isPool)
+            :base(idAcc, nameAcc, addressAcc, cityAcc, listRoomOfAcc, rateAcc)
+        {
+            StarResort = starResort;
+            IsPool = isPool;
+        }
+
+        public string toString()
+        {
+            return $"\tResort Information!!!\nID: {IdAcc}. Name: {NameAcc}.\nAddress: {AddressAcc}. City: {CityAcc}.\n*** Star ***: {StarResort}.\n\n";
         }
     }
 }
