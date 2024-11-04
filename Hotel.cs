@@ -4,33 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Management_Module
+namespace Project_OOP_2024
 {
-    internal class Hotel:CommonAccommodation
+    public class Hotel : CommonAccommodation
     {
-        private float starHotel;
+        private int stars;
 
-        public int StarHote
+        public int Stars { get => stars; set => stars = value; }
+
+        public Hotel(int id, string name, string street, string city, List<Room> danhSachPhong, float rate, int stars) : base(id, name, street, city, danhSachPhong, rate)
         {
-            get { return starHotel; }
-            set { starHotel = value; }
+            Stars = stars;
+        }
+        public Hotel(int id, string name, string street, string city, float rate, int stars) : base(id, name, street, city, rate)
+        {
+            Stars = stars;
         }
 
-        public Hotel(int idAcc, string nameAcc, string addressAcc, string cityAcc, float rateAcc, float starHotel)
-            :base(idAcc, nameAcc, addressAcc, cityAcc, rateAcc)
+        public override string ToString()
         {
-            this.starHotel = starHotel;
-        }
-
-        public Hotel(int idAcc, string nameAcc, string addressAcc, string cityAcc, List<Room> listRoomOfAcc, float rateAcc, float starHotel)
-            :base(idAcc, nameAcc, addressAcc, cityAcc, listRoomOfAcc, rateAcc)
-        {
-            this.starHotel = starHotel;
-        }
-
-        public string toString()
-        {
-            return $"\tHotel Information!!!\nID: {IdAcc}. Name: {NameAcc}.\nAddress: {AddressAcc}. City: {CityAcc}.\n*** Star ***: {StarHote}.";
+            return $"Hotel [{Id}, {Stars}, {Name}, {Street}, {City}]";
         }
     }
 }

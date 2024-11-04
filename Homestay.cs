@@ -4,23 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Management_Module
+namespace Project_OOP_2024
 {
-    internal class Homestay:CommonAccommodation
+    public class Homestay : CommonAccommodation
     {
-        public Homestay(int idAcc, string nameAcc, string addressAcc, string cityAcc, float rateAcc)
-            :base(idAcc, nameAcc, addressAcc, cityAcc, rateAcc)
+        public Homestay(int id, string name, string street, string city, List<Room> danhSachPhong, float rate) : base(id, name, street, city, danhSachPhong, rate)
+        {
+        }
+        public Homestay(int id, string name, string street, string city, float rate) : base(id, name, street, city, rate)
         {
         }
 
-        public Homestay(int idAcc, string nameAcc, string addressAcc, string cityAcc, List<Room> listRoomOfAcc, float rateAcc)
-            :base(idAcc, nameAcc, addressAcc, cityAcc, listRoomOfAcc, rateAcc)
+        public override string ToString()
         {
-        }
-
-        public string toString()
-        {
-            return $"\tHomestay Information!!!\nID: {IdAcc}. Name: {NameAcc}.\nAddress: {AddressAcc}. City: {CityAcc}.";
+            return $"Homestay [{Id}, {Name}, {Street}, {Rate}, {City}]";
         }
     }
 }

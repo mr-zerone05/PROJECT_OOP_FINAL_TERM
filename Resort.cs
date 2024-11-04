@@ -4,42 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Management_Module
+namespace Project_OOP_2024
 {
-    internal class Resort:CommonAccommodation
+    public class Resort : CommonAccommodation
     {
-        private float starResort;
-        private bool isPool;
+        private int star;
+        private bool swim;
 
-        public float StarResort
+        public int Star { get => star; set => star = value; }
+        public bool Swim { get => swim; set => swim = value; }
+
+        public Resort (int id, string name, string street, string city, List<Room> danhSachPhong, float rate, int star, bool swim) : base ( id, name, street, city, danhSachPhong, rate)
         {
-            get { return starResort; }
-            set { starResort = value; }
+            Star = star;
+            Swim = swim;
+        }
+        public Resort (int id, string name, string street, string city, float rate, int star, bool swim) : base (id, name, street, city, rate)
+        {
+            Star = star;
+            Swim = swim;
         }
 
-        public bool IsPool
+        public override string ToString()
         {
-            get { return isPool; }
-            set { isPool = value; }
-        }
-
-        public Resort(int idAcc, string nameAcc, string addressAcc, string cityAcc, float rateAcc, float starResort, bool isPool)
-            :base(idAcc, nameAcc, addressAcc, cityAcc, rateAcc)
-        {
-            StarResort = starResort;
-            IsPool = isPool;
-        }
-
-        public Resort(int idAcc, string nameAcc, string addressAcc, string cityAcc, List<Room> listRoomOfAcc, float rateAcc, float starResort, bool isPool)
-            :base(idAcc, nameAcc, addressAcc, cityAcc, listRoomOfAcc, rateAcc)
-        {
-            StarResort = starResort;
-            IsPool = isPool;
-        }
-
-        public string toString()
-        {
-            return $"\tResort Information!!!\nID: {IdAcc}. Name: {NameAcc}.\nAddress: {AddressAcc}. City: {CityAcc}.\n*** Star ***: {StarResort}.\n\n";
+            return $"Resort [{Id}, {Name}, {Star}, {Street}, {Swim}, {City}]";
         }
     }
 }
